@@ -8,4 +8,23 @@ public class PEP2T_1_JMMM {
         saldoInicio = saldazo;
         topeRetirar = topazo;
     }
+
+    private void VerificacionTope(float retirado){
+        if (retirado > topeRetirar){
+            System.out.println("Intenta retirar " + retirado + " €");
+            System.out.printf("Tiene establecido ahora un tope de " + topeRetirar + "€");
+            System.out.println("Su saldo actual es de " + saldoInicio + " €");
+        }
+        else if (retirado <= topeRetirar){
+            System.out.println("Usted retiró " + retirado + " €");
+            topeRetirar -= retirado;
+            System.out.println("Su saldo actual es de " + saldoInicio + " €");
+        }
+    }
+
+    private void VerificacionSaldo(float retirado){
+        if (retirado <= topeRetirar){
+            saldoInicio -= retirado;
+        }
+    }
 }
