@@ -1,18 +1,21 @@
 import java.util.Scanner;
 
 public class PEP2T_1_JMMM {
+    // Atributos de la clase
     float saldoInicio;
     float topeRetirar;
 
+    // Constructor privado para inicializar saldo y tope de retiro
     private PEP2T_1_JMMM(float saldazo, float topazo){
         saldoInicio = saldazo;
         topeRetirar = topazo;
     }
 
+    // Metodo privado privado para verificar el tope del retiro
     private void VerificacionTope(float retirado){
         if (retirado > topeRetirar){
             System.out.println("Intenta retirar " + retirado + " €");
-            System.out.printf("Tiene establecido ahora un tope de " + topeRetirar + "€");
+            System.out.printf("Tiene establecido ahora un tope de " + String.format("%.0f", topeRetirar) + "€");
             System.out.println("Su saldo actual es de " + saldoInicio + " €");
         }
         else if (retirado <= topeRetirar){
@@ -22,9 +25,62 @@ public class PEP2T_1_JMMM {
         }
     }
 
+    // Metodo privado para verificar el saldo antes de retirar
     private void VerificacionSaldo(float retirado){
         if (retirado <= topeRetirar){
             saldoInicio -= retirado;
+        }
+    }
+
+    // Metodo privado para realizar la operación de retiro
+    private void Retirar(){
+        System.out.println("Su saldo actual es de " + saldoInicio + " €");
+        System.out.println("Teclee dinero a retirar: ");
+        Scanner leer = new Scanner(System.in);
+        Float retirado = leer.nextFloat();
+        VerificacionSaldo(retirado);
+        VerificacionTope(retirado);
+    }
+
+    // Metodo privado para realizar la operación de ingreso
+    private void Ingresar(){
+        System.out.println("Su saldo actual es de " + saldoInicio + " €");
+        System.out.println("Teclee dinero a ingresar: ");
+        Scanner leer = new Scanner(System.in);
+        Float ingresado = leer.nextFloat();
+        System.out.println("Usted ingreso " + ingresado + " €");
+        saldoInicio += ingresado;
+        System.out.println("Su saldo actual es de " + saldoInicio + " €");
+    }
+
+    //Metodo principal
+    public static void main(String[] args){
+        boolean menu = true;
+        // Crea el objeto de la clase con valores iniciales proporcionados por los argumentos
+        PEP2T_1_JMMM objeto = new PEP2T_1_JMMM(Float.parseFloat(args[0]), Float.parseFloat(args[1]));
+        System.out.println("PROGRAMA CAJERO AUTOMÁTICO");
+        // Buvle para mostrar el menú y realizar operaciones hasta que el usuario elija salir
+        while(menu){
+            System.out.println("\t Menú de Opciones");
+            System.out.println("\t ================");
+            System.out.println("1) Retirada de dinero");
+            System.out.println("2) Ingreso de dinero");
+            System.out.println("3) Salir");
+            System.out.println("Opción: ");
+            Scanner teclado = new Scanner(System.in);
+            int opcion = teclado.nextInt();
+            // Estructura switch para manejar la opción elegida
+            switch (opcion){
+                case 1:
+                    objeto.Retirar();
+                    break;
+                case 2:
+                    objeto.Ingresar();
+                    break;
+                case 3:
+                    menu = false;
+                    break;
+            }
         }
     }
 }
