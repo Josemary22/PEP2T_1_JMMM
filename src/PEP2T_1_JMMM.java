@@ -36,4 +36,14 @@ public class PEP2T_1_JMMM {
         VerificacionSaldo(retirado);
         VerificacionTope(retirado);
     }
+
+    private void Ingresar(){
+        System.out.println("Su saldo actual es de " + saldoInicio + " €");
+        System.out.println("Teclee dinero a ingresar: ");
+        Scanner leer = new Scanner(System.in);
+        Float ingresado = leer.nextFloat();
+        System.out.println("Usted ingreso " + ingresado + " €");
+        saldoInicio += ingresado;
+        System.out.println("Su saldo actual es de " + saldoInicio + " €");
+    }
 }
