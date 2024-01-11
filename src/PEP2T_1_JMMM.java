@@ -15,7 +15,7 @@ public class PEP2T_1_JMMM {
     private void VerificacionTope(float retirado) {
         if (retirado > topeRetirar) {
             System.out.println("Intenta retirar " + retirado + " €");
-            System.out.printf("Tiene establecido ahora un tope de " + String.format("%.0f", topeRetirar) + "€");
+            System.out.println("Tiene establecido ahora un tope de " + String.format("%.0f", topeRetirar) + "€");
             System.out.println("Su saldo actual es de " + saldoInicio + " €");
         } else if (retirado <= topeRetirar) {
             System.out.println("Usted retiró " + retirado + " €");
@@ -36,7 +36,7 @@ public class PEP2T_1_JMMM {
         System.out.println("Su saldo actual es de " + saldoInicio + " €");
         System.out.println("Teclee dinero a retirar: ");
         Scanner leer = new Scanner(System.in);
-        Float retirado = leer.nextFloat();
+        float retirado = leer.nextFloat();
         VerificacionSaldo(retirado);
         VerificacionTope(retirado);
     }
@@ -46,7 +46,7 @@ public class PEP2T_1_JMMM {
         System.out.println("Su saldo actual es de " + saldoInicio + " €");
         System.out.println("Teclee dinero a ingresar: ");
         Scanner leer = new Scanner(System.in);
-        Float ingresado = leer.nextFloat();
+        float ingresado = leer.nextFloat();
         System.out.println("Usted ingresó " + ingresado + " €");
         saldoInicio += ingresado;
         System.out.println("Su saldo actual es de " + saldoInicio + " €");
@@ -57,18 +57,18 @@ public class PEP2T_1_JMMM {
         boolean menu = true;
         // Crear objeto de la clase con valores iniciales proporcionados por los argumentos
         PEP2T_1_JMMM objeto = new PEP2T_1_JMMM(Float.parseFloat(args[0]), Float.parseFloat(args[1]));
-        System.out.println("PROGRAMA CAJERO AUTOMÁTICO");
+        System.out.println("\033[1m\u001B[4mPROGRAMA CAJERO AUTOMÁTICO\033[0m");
         // Bucle para mostrar el menú y realizar operaciones hasta que el usuario elija salir
         while (menu) {
-            System.out.println("\t Menú de Opciones");
-            System.out.println("\t ================");
+            System.out.println("\033[1m\t Menú de Opciones\033[0m");
+            System.out.println("\033[1m\t ================\033[0m");
             System.out.println("1) Retirada de dinero");
             System.out.println("2) Ingreso de dinero");
             System.out.println("3) Salir");
             System.out.println("Opción: ");
             Scanner teclado = new Scanner(System.in);
             int opcion = teclado.nextInt();
-            // Estructura switch-case para manejar la opción seleccionada
+            // Estructura switch para manejar la opción seleccionada
             switch (opcion) {
                 case 1:
                     objeto.Retirar();
