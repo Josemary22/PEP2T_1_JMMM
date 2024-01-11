@@ -79,6 +79,9 @@ public class PEP2T_1_JMMM {
                 case 3:
                     menu = false;
                     break;
+                default:
+                    System.out.println("Esta opción no es válida, elija otra opción.");
+                    break;
             }
         }
     }
