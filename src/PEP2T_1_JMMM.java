@@ -27,4 +27,13 @@ public class PEP2T_1_JMMM {
             saldoInicio -= retirado;
         }
     }
+
+    private void Retirar(){
+        System.out.println("Su saldo actual es de " + saldoInicio + " €");
+        System.out.println("Teclee dinero a retirar: ");
+        Scanner leer = new Scanner(System.in);
+        Float retirado = leer.nextFloat();
+        VerificacionSaldo(retirado);
+        VerificacionTope(retirado);
+    }
 }
