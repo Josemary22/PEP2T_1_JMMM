@@ -6,34 +6,33 @@ public class PEP2T_1_JMMM {
     float topeRetirar;
 
     // Constructor privado para inicializar saldo y tope de retiro
-    private PEP2T_1_JMMM(float saldazo, float topazo){
+    private PEP2T_1_JMMM(float saldazo, float topazo) {
         saldoInicio = saldazo;
         topeRetirar = topazo;
     }
 
-    // Metodo privado privado para verificar el tope del retiro
-    private void VerificacionTope(float retirado){
-        if (retirado > topeRetirar){
+    // Método privado para verificar el tope de retiro
+    private void VerificacionTope(float retirado) {
+        if (retirado > topeRetirar) {
             System.out.println("Intenta retirar " + retirado + " €");
             System.out.printf("Tiene establecido ahora un tope de " + String.format("%.0f", topeRetirar) + "€");
             System.out.println("Su saldo actual es de " + saldoInicio + " €");
-        }
-        else if (retirado <= topeRetirar){
+        } else if (retirado <= topeRetirar) {
             System.out.println("Usted retiró " + retirado + " €");
             topeRetirar -= retirado;
             System.out.println("Su saldo actual es de " + saldoInicio + " €");
         }
     }
 
-    // Metodo privado para verificar el saldo antes de retirar
-    private void VerificacionSaldo(float retirado){
-        if (retirado <= topeRetirar){
+    // Método privado para verificar el saldo antes de retirar
+    private void VerificacionSaldo(float retirado) {
+        if (retirado <= topeRetirar) {
             saldoInicio -= retirado;
         }
     }
 
-    // Metodo privado para realizar la operación de retiro
-    private void Retirar(){
+    // Método privado para realizar la operación de retiro
+    private void Retirar() {
         System.out.println("Su saldo actual es de " + saldoInicio + " €");
         System.out.println("Teclee dinero a retirar: ");
         Scanner leer = new Scanner(System.in);
@@ -42,25 +41,25 @@ public class PEP2T_1_JMMM {
         VerificacionTope(retirado);
     }
 
-    // Metodo privado para realizar la operación de ingreso
-    private void Ingresar(){
+    // Método privado para realizar la operación de ingreso
+    private void Ingresar() {
         System.out.println("Su saldo actual es de " + saldoInicio + " €");
         System.out.println("Teclee dinero a ingresar: ");
         Scanner leer = new Scanner(System.in);
         Float ingresado = leer.nextFloat();
-        System.out.println("Usted ingreso " + ingresado + " €");
+        System.out.println("Usted ingresó " + ingresado + " €");
         saldoInicio += ingresado;
         System.out.println("Su saldo actual es de " + saldoInicio + " €");
     }
 
-    //Metodo principal
-    public static void main(String[] args){
+    // Método principal
+    public static void main(String[] args) {
         boolean menu = true;
-        // Crea el objeto de la clase con valores iniciales proporcionados por los argumentos
+        // Crear objeto de la clase con valores iniciales proporcionados por los argumentos
         PEP2T_1_JMMM objeto = new PEP2T_1_JMMM(Float.parseFloat(args[0]), Float.parseFloat(args[1]));
         System.out.println("PROGRAMA CAJERO AUTOMÁTICO");
-        // Buvle para mostrar el menú y realizar operaciones hasta que el usuario elija salir
-        while(menu){
+        // Bucle para mostrar el menú y realizar operaciones hasta que el usuario elija salir
+        while (menu) {
             System.out.println("\t Menú de Opciones");
             System.out.println("\t ================");
             System.out.println("1) Retirada de dinero");
@@ -69,8 +68,8 @@ public class PEP2T_1_JMMM {
             System.out.println("Opción: ");
             Scanner teclado = new Scanner(System.in);
             int opcion = teclado.nextInt();
-            // Estructura switch para manejar la opción elegida
-            switch (opcion){
+            // Estructura switch-case para manejar la opción seleccionada
+            switch (opcion) {
                 case 1:
                     objeto.Retirar();
                     break;
